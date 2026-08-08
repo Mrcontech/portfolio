@@ -1,0 +1,18 @@
+node_modules
+dist
+.playwright-mcp
+
+# Crawl artefacts + reference captures — build inputs only, never imported by src/
+crawl/
+reference/
+
+# verification screenshots
+*.png
+!public/**/*.png
+
+# build info
+tsconfig.tsbuildinfo
+
+# local env / secrets
+.env
+.env.*

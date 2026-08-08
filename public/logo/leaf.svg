@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.5182 120.46875" width="127.5182" height="120.46875" role="img" aria-label="Decorative leaf">
+  <defs>
+    <linearGradient id="leafBlade" x1="18" y1="96" x2="104" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a6c9a9"/>
+      <stop offset="0.55" stop-color="#93b8c9"/>
+      <stop offset="1" stop-color="#8da7ff"/>
+    </linearGradient>
+    <linearGradient id="leafDrop" x1="70" y1="34" x2="112" y2="104" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9fc4e8"/>
+      <stop offset="1" stop-color="#8da7ff"/>
+    </linearGradient>
+  </defs>
+  <!-- stem -->
+  <path d="M6 112 C 34 104, 58 88, 76 62"
+        fill="none" stroke="#a6c9a9" stroke-width="3.2" stroke-linecap="round" opacity="0.95"/>
+  <!-- upper blade -->
+  <path d="M76 62 C 70 34, 84 14, 116 6 C 118 40, 106 58, 76 62 Z"
+        fill="url(#leafBlade)" opacity="0.92"/>
+  <!-- lower blade -->
+  <path d="M50 92 C 40 74, 46 56, 70 48 C 76 70, 70 86, 50 92 Z"
+        fill="url(#leafBlade)" opacity="0.78"/>
+  <!-- droplet leaflet -->
+  <path d="M92 48 C 108 62, 112 82, 100 96 C 86 104, 74 92, 78 74 C 80 62, 85 54, 92 48 Z"
+        fill="url(#leafDrop)" opacity="0.9"/>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80" role="img" aria-label="Max Scott Property">
+  <!-- Compact mark distilled from the Max Scott Property wordmark: the gold
+       star flanked by the two rules. Legible at 40px where the full lockup
+       would not be.
+       NOTE: explicit greys, NOT currentColor. This file is loaded through an
+       <img> tag, which renders it in its own document context, so currentColor
+       would resolve to black and vanish on the dark tile. #9aa2ad reads on both
+       the light (neutral-100) and dark (neutral-900) tile backgrounds. -->
+  <g fill="#9aa2ad">
+    <text x="40" y="31" font-family="Georgia, 'Times New Roman', serif" font-size="21"
+          letter-spacing="1.5" text-anchor="middle">MS</text>
+  </g>
+  <g stroke="#9aa2ad" stroke-width="2.6" stroke-linecap="butt" opacity="0.75">
+    <line x1="9" y1="44" x2="29" y2="44"/>
+    <line x1="51" y1="44" x2="71" y2="44"/>
+  </g>
+  <path d="M40 34l3.2 6.5 7.2 1.05-5.2 5.07 1.23 7.15-6.45-3.39-6.45 3.39 1.23-7.15-5.2-5.07 7.2-1.05z"
+        fill="#FDC500"/>
+  <g fill="#9aa2ad" opacity="0.9">
+    <text x="40" y="68" font-family="Georgia, 'Times New Roman', serif" font-size="10.5"
+          letter-spacing="1.6" text-anchor="middle">PROPERTY</text>
+  </g>
+</svg>

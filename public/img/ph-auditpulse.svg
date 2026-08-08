@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="AuditPulse preview placeholder">
+  <defs>
+    <linearGradient id="ap" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d141c"/><stop offset="1" stop-color="#16232f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#ap)"/>
+  <rect x="0" y="0" width="1600" height="56" fill="#0a1016"/>
+  <circle cx="34" cy="28" r="7" fill="#374655"/><circle cx="58" cy="28" r="7" fill="#374655"/><circle cx="82" cy="28" r="7" fill="#374655"/>
+  <rect x="70" y="130" width="420" height="24" rx="12" fill="#6d8194" opacity="0.8"/>
+  <rect x="70" y="176" width="280" height="18" rx="9" fill="#4a5b6b" opacity="0.7"/>
+  <g opacity="0.9">
+    <rect x="70" y="250" width="330" height="150" rx="14" fill="#132030"/>
+    <rect x="430" y="250" width="330" height="150" rx="14" fill="#132030"/>
+    <rect x="790" y="250" width="330" height="150" rx="14" fill="#132030"/>
+    <rect x="100" y="290" width="150" height="16" rx="8" fill="#3f5265"/>
+    <rect x="100" y="326" width="90" height="30" rx="8" fill="#22c55e" opacity="0.75"/>
+    <rect x="460" y="290" width="150" height="16" rx="8" fill="#3f5265"/>
+    <rect x="460" y="326" width="90" height="30" rx="8" fill="#f59e0b" opacity="0.75"/>
+    <rect x="820" y="290" width="150" height="16" rx="8" fill="#3f5265"/>
+    <rect x="820" y="326" width="90" height="30" rx="8" fill="#ef4444" opacity="0.7"/>
+  </g>
+  <rect x="70" y="460" width="1460" height="330" rx="16" fill="#0f1a24" opacity="0.45"/>
+  <polyline points="150,720 320,660 490,690 660,590 830,630 1000,520 1170,560 1340,470 1460,500"
+            fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+</svg>

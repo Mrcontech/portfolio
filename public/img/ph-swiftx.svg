@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Swiftx preview placeholder">
+  <defs>
+    <linearGradient id="sx" x1="0" y1="900" x2="1600" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f0d1a"/><stop offset="1" stop-color="#241a3a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sx)"/>
+  <rect x="0" y="0" width="1600" height="56" fill="#0b0913"/>
+  <circle cx="34" cy="28" r="7" fill="#3d3357"/><circle cx="58" cy="28" r="7" fill="#3d3357"/><circle cx="82" cy="28" r="7" fill="#3d3357"/>
+  <!-- extension popup panel -->
+  <rect x="980" y="120" width="520" height="620" rx="20" fill="#171327" stroke="#33294f" stroke-width="2"/>
+  <rect x="1020" y="170" width="220" height="20" rx="10" fill="#8b7ec8" opacity="0.85"/>
+  <g fill="#2a2145">
+    <rect x="1020" y="230" width="440" height="96" rx="12"/>
+    <rect x="1020" y="346" width="440" height="96" rx="12"/>
+    <rect x="1020" y="462" width="440" height="96" rx="12"/>
+  </g>
+  <g fill="#6d5fb5" opacity="0.9">
+    <rect x="1046" y="258" width="300" height="12" rx="6"/><rect x="1046" y="286" width="220" height="12" rx="6"/>
+    <rect x="1046" y="374" width="330" height="12" rx="6"/><rect x="1046" y="402" width="180" height="12" rx="6"/>
+    <rect x="1046" y="490" width="290" height="12" rx="6"/><rect x="1046" y="518" width="240" height="12" rx="6"/>
+  </g>
+  <rect x="1020" y="600" width="200" height="52" rx="12" fill="#7c3aed" opacity="0.9"/>
+  <!-- page behind -->
+  <g fill="#1a1530" opacity="0.7">
+    <rect x="90" y="150" width="780" height="20" rx="10"/>
+    <rect x="90" y="200" width="620" height="16" rx="8"/>
+    <rect x="90" y="240" width="700" height="16" rx="8"/>
+    <rect x="90" y="320" width="780" height="380" rx="16"/>
+  </g>
+</svg>

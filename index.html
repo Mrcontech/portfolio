@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" class="lenis dark">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/logo/leaf.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <script>
+      // Apply the stored theme before first paint so there's no light flash.
+      // Dark is the default until the visitor chooses otherwise.
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t !== 'light' && t !== 'dark') t = 'dark';
+          var e = document.documentElement;
+          e.classList.remove('light', 'dark');
+          e.classList.add(t);
+          e.style.colorScheme = t;
+        } catch (_) {}
+      })();
+    </script>
+    <meta name="description" content="Okereke Excellence, full stack developer. I help founders turn ideas into seamless digital experiences." />
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/geist-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="apple-touch-icon" href="/img/avatar.png" />
+    <meta property="og:title" content="Okereke Excellence | Full Stack Developer &amp; AI/ML" />
+    <meta property="og:image" content="/img/avatar.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@mrcontech" />
+    <title>Okereke Excellence | Full Stack Developer &amp; AI/ML</title>
+  </head>
+  <body class="antialiased relative min-h-screen w-full overflow-x-hidden">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
