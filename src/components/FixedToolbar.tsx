@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTheme } from '../hooks/useTheme'
+import { useClickSound } from '../hooks/useClickSound'
 import { SpotifyPanel } from './SpotifyPanel'
 import { BookingModal } from './BookingModal'
 
@@ -68,6 +69,7 @@ function MusicButton({ open, onToggle }: { open: boolean; onToggle: () => void }
 /** Fixed bottom-right control stack: theme toggle, booking link, music. */
 export function FixedToolbar() {
   const { theme, toggle } = useTheme()
+  const playClick = useClickSound()
   const [musicOpen, setMusicOpen] = useState(false)
   // once opened, keep the iframe mounted so playback survives closing the panel
   const [musicMounted, setMusicMounted] = useState(false)
@@ -83,7 +85,14 @@ export function FixedToolbar() {
       <SpotifyPanel open={musicOpen} mounted={musicMounted} onClose={() => setMusicOpen(false)} />
       <BookingModal open={bookingOpen} onClose={() => setBookingOpen(false)} />
       <div className="fixed bottom-4 right-4 flex flex-col items-center gap-2 z-[200]">
-        <button className={toolbarButton} onClick={toggle} aria-label="Toggle theme">
+        <button
+          className={toolbarButton}
+          onClick={() => {
+            playClick()
+            toggle()
+          }}
+          aria-label="Toggle theme"
+        >
           {theme === 'dark' ? <MoonIcon /> : <SunIcon />}
           <span className="sr-only">Toggle theme</span>
         </button>

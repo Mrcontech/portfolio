@@ -94,11 +94,11 @@ export const bio: BioSegment[] = [
   { kind: 'tech', value: 'Node.js', icon: 'nodejs' },
   { kind: 'text', value: ' for backends, databases like ' },
   { kind: 'tech', value: 'PostgreSQL', icon: 'postgresql' },
+  { kind: 'text', value: '. I also integrate agentic AI into my applications using ' },
+  { kind: 'tech', value: 'LangChain', icon: 'langchain' },
   { kind: 'text', value: ' and ' },
-  { kind: 'tech', value: 'Supabase', icon: 'supabase' },
-  { kind: 'text', value: ', and I build AI features on the ' },
-  { kind: 'tech', value: 'OpenAI', icon: 'openai' },
-  { kind: 'text', value: ' and Claude APIs.' },
+  { kind: 'tech', value: 'LangGraph', icon: 'langgraph' },
+  { kind: 'text', value: '.' },
 ]
 
 export const socials: SocialLink[] = [

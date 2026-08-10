@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react'
+import { flushSync } from 'react-dom'
 
 export type Theme = 'light' | 'dark'
 
@@ -23,6 +24,31 @@ function apply(theme: Theme) {
   el.style.colorScheme = theme
 }
 
+/**
+ * Swap themes behind a View Transition so the incoming theme wipes down over
+ * the old one (see `ripple-down` in index.css).
+ *
+ * The state update has to be flushed INSIDE the callback: the browser snapshots
+ * the page before it runs and again after it settles, and animates between
+ * those two frames. A plain setState here would resolve after the snapshot and
+ * the wipe would show no change at all.
+ *
+ * Unsupported browsers (Firefox, older Safari) just get the instant swap.
+ */
+function withViewTransition(mutate: () => void) {
+  const doc = document as Document & {
+    startViewTransition?: (cb: () => void | Promise<void>) => { finished: Promise<void> }
+  }
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (typeof doc.startViewTransition !== 'function' || reduced) {
+    mutate()
+    return
+  }
+  doc.startViewTransition(() => {
+    flushSync(mutate)
+  })
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>(() => {
     if (typeof localStorage === 'undefined') return DEFAULT_THEME
@@ -39,8 +65,14 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
   }, [theme])
 
-  const setTheme = useCallback((t: Theme) => setThemeState(t), [])
-  const toggle = useCallback(() => setThemeState((t) => (t === 'dark' ? 'light' : 'dark')), [])
+  const setTheme = useCallback(
+    (t: Theme) => withViewTransition(() => setThemeState(t)),
+    [],
+  )
+  const toggle = useCallback(
+    () => withViewTransition(() => setThemeState((t) => (t === 'dark' ? 'light' : 'dark'))),
+    [],
+  )
 
   return <Ctx.Provider value={{ theme, toggle, setTheme }}>{children}</Ctx.Provider>
 }

@@ -303,3 +303,46 @@ html.lenis-body {
 @keyframes rough-notation-dash {
   to { stroke-dashoffset: 0; }
 }
+
+/* ---------------------------------------------------------------------------
+   Theme-change wipe, via the View Transitions API.
+
+   Values measured off qubydev.vercel.app rather than guessed. Note it is NOT
+   the circular reveal these toggles usually use: the incoming theme is clipped
+   with `inset(0 0 100%)` and wipes straight DOWN over the outgoing one, which
+   stays put underneath at a lower z-index.
+
+   Both snapshots get `animation: none` first so the browser's default
+   cross-fade is disabled; only the new snapshot is then animated.
+--------------------------------------------------------------------------- */
+::view-transition-old(root),
+::view-transition-new(root) {
+  mix-blend-mode: normal;
+  animation: none;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 999;
+  clip-path: inset(0 0 100%);
+  animation: 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards ripple-down;
+}
+
+@keyframes ripple-down {
+  0% {
+    clip-path: inset(0 0 100%);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-new(root) {
+    clip-path: none;
+    animation: none;
+  }
+}

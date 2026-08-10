@@ -65,6 +65,31 @@ export const extraIcons: Record<string, IconDef> = {
     ],
   },
 
+  /** Chain-link motif. LangChain's real mark is a multi-colour parrot+chain
+   *  lockup that doesn't reduce to a single monochrome path, so this is a
+   *  clean stand-in that still tints with the surrounding text. */
+  langchain: {
+    viewBox: '0 0 24 24',
+    paths: [
+      'M9.5 14.5a4.6 4.6 0 0 1 0-6.5l2.2-2.2a4.6 4.6 0 0 1 6.5 6.5l-1.3 1.3',
+      'M14.5 9.5a4.6 4.6 0 0 1 0 6.5l-2.2 2.2a4.6 4.6 0 0 1-6.5-6.5l1.3-1.3',
+    ],
+    stroke: true,
+  },
+
+  /** Node-graph motif for LangGraph: three connected nodes. */
+  langgraph: {
+    viewBox: '0 0 24 24',
+    paths: [
+      'M12 3.4v5.1M7.6 18.1l2.6-4.3M16.4 18.1l-2.6-4.3',
+      'M12 2a1.9 1.9 0 1 0 0 3.8A1.9 1.9 0 0 0 12 2Z',
+      'M12 9.6a2.1 2.1 0 1 0 0 4.2 2.1 2.1 0 0 0 0-4.2Z',
+      'M6 18.2a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8Z',
+      'M18 18.2a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8Z',
+    ],
+    stroke: true,
+  },
+
   // No canonical monochrome brand mark — clean geometric stand-ins.
   zustand: {
     viewBox: '0 0 24 24',
