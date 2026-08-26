@@ -9,7 +9,10 @@ import { Footer } from './components/Footer'
 import { GradualBlur } from './components/GradualBlur'
 import { FixedToolbar } from './components/FixedToolbar'
 import { CommandPalette } from './components/CommandPalette'
-import { experience } from './data/site'
+import { Connect } from './components/Connect'
+import { DotField } from './components/patterns'
+import { Navbar } from './components/Navbar'
+import { experience, connect } from './data/site'
 import { useScrollProgress } from './hooks/useScrollProgress'
 
 export default function App() {
@@ -32,6 +35,35 @@ export default function App() {
 
   return (
     <>
+      <div id="top" />
+      <Navbar />
+
+      {/* Full-document edge rails measured from SahilCodex. On mobile the
+          lines sit 8px inside the viewport; from sm up they become 24px
+          gutters whose inner borders align with our 50vw content column. */}
+      <div
+        data-page-edge-rail="left"
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 left-0 z-0 w-2 border-r border-neutral-200 sm:left-[25vw] sm:w-6 sm:-translate-x-full dark:border-neutral-800 dark:opacity-60"
+      />
+      <div
+        data-page-edge-rail="right"
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 right-0 z-0 w-2 border-l border-neutral-200 sm:right-[25vw] sm:w-6 sm:translate-x-full dark:border-neutral-800 dark:opacity-60"
+      />
+
+      {/* SahilCodex mobile geometry: 12px outer padding around an 84px dotted
+          field, followed immediately by the hero section. */}
+      <div className="w-full py-3 sm:py-0">
+        <DotField className="min-h-20 px-[5px] sm:min-h-0 sm:px-0 sm:py-3">
+          <div className="px-10 py-6 sm:p-0">
+            <p className="text-xl sm:text-base font-normal tracking-tight leading-[18px] sm:leading-5 opacity-50 select-none text-center whitespace-pre-line">
+              {connect.availability}
+            </p>
+          </div>
+        </DotField>
+      </div>
+
       {/* full-height dashed rules framing the content column */}
       <div className="absolute top-0 bottom-0 left-[calc(25vw-24px)] grid-line-v hidden sm:block" />
       <div className="absolute top-0 bottom-0 right-[calc(25vw-24px)] grid-line-v hidden sm:block" />
@@ -45,6 +77,12 @@ export default function App() {
             <Skills />
             <Projects />
             <GitHubActivity />
+          </div>
+
+          {/* full-bleed closing band: sits outside the 50vw column so its
+              hatch rules can span the viewport */}
+          <div className="w-[92vw] sm:w-[50vw] z-20">
+            <Connect />
           </div>
         </div>
       </div>

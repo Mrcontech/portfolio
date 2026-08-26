@@ -305,6 +305,55 @@ html.lenis-body {
 }
 
 /* ---------------------------------------------------------------------------
+   Connect link grid: full-bleed row rules.
+
+   Each row-leading tile paints a 1px rule at its top and bottom that is 300vw
+   wide and offset -100vw, so the line escapes the content column and runs the
+   full width of the viewport. That is how the reference gets rules that appear
+   to belong to the page rather than to the grid.
+
+   The reference ships both the 2-column (`odd`) and 3-column (`3n+1`) selectors
+   ungated, which would double up once three columns are in play. They are
+   scoped to their own breakpoints here so each layout only draws rules on the
+   tiles that genuinely start a row.
+--------------------------------------------------------------------------- */
+.connect-grid li {
+  position: relative;
+}
+
+.connect-grid li::before,
+.connect-grid li::after {
+  content: "";
+  position: absolute;
+  left: -100vw;
+  width: 300vw;
+  height: 1px;
+  z-index: 1;
+  pointer-events: none;
+  background-color: var(--border);
+}
+.connect-grid li::before { top: 0; }
+.connect-grid li::after { bottom: 0; }
+
+/* 2 columns: rules on every odd tile */
+.connect-grid li:not(:nth-child(odd))::before,
+.connect-grid li:not(:nth-child(odd))::after {
+  content: none;
+}
+
+/* 3 columns from md up: rules move to every 3n+1 tile instead */
+@media (min-width: 48rem) {
+  .connect-grid li:nth-child(3n + 1)::before,
+  .connect-grid li:nth-child(3n + 1)::after {
+    content: "";
+  }
+  .connect-grid li:not(:nth-child(3n + 1))::before,
+  .connect-grid li:not(:nth-child(3n + 1))::after {
+    content: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
    Theme-change wipe, via the View Transitions API.
 
    Values measured off qubydev.vercel.app rather than guessed. Note it is NOT

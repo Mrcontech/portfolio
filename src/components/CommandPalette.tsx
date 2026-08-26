@@ -20,6 +20,7 @@ const COMMANDS: Command[] = [
   { id: 'skills', label: 'Skills', group: 'Sections', shortcut: 'S', run: scrollTo('skills') },
   { id: 'projects', label: 'Projects', group: 'Sections', shortcut: 'P', run: scrollTo('projects') },
   { id: 'github', label: 'GitHub', group: 'Sections', shortcut: 'G', run: scrollTo('github') },
+  { id: 'connect', label: 'Connect', group: 'Sections', shortcut: 'N', run: scrollTo('connect') },
   {
     id: 'copy-link',
     label: 'Copy Link',

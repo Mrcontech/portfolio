@@ -53,46 +53,6 @@ export function RowDivider() {
 }
 
 /* -------------------------------------------------------------------------
-   Shiny chip — the layered social / nav button. Five stacked gradient spans
-   over a translucent base; class strings taken verbatim from the reference.
-------------------------------------------------------------------------- */
-
-export function ShinyChip({ children }: { children: ReactNode }) {
-  return (
-    <>
-      <span
-        aria-hidden="true"
-        className="absolute inset-0 rounded-[4px] overflow-hidden transition-colors duration-200 group-active:duration-[50ms] bg-white/90 dark:bg-[#0c0c0e] group-hover:dark:bg-[#121214] border border-black/5 dark:border-white/5 group-hover:border-black/10 dark:group-hover:border-white/10"
-      >
-        <span className="absolute inset-0 rounded-[4px] transition duration-200 bg-black/[0.02] dark:bg-transparent group-hover:bg-transparent dark:group-hover:bg-white/[0.02] group-active:bg-black/[0.04] dark:group-active:bg-white/[0.04] group-active:duration-[50ms]" />
-        <span
-          className="absolute inset-0 transition duration-200 group-active:opacity-0 group-active:duration-[50ms] opacity-[0.16] dark:opacity-[0.04]"
-          style={{ background: 'linear-gradient(rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%)' }}
-        />
-        <span
-          className="absolute inset-0 transition duration-200 group-active:duration-[50ms] opacity-[0.04] dark:opacity-[0.1]"
-          style={{
-            background:
-              'radial-gradient(65.62% 65.62% at 50% 100%, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%)',
-          }}
-        />
-        <span
-          className="absolute inset-0 transition duration-200 group-active:opacity-0 group-active:duration-[50ms] opacity-[0.4] dark:opacity-[0.04]"
-          style={{
-            background:
-              'linear-gradient(99deg, rgba(255, 255, 255, 0) 27.7%, rgba(255, 255, 255, 0.12) 60.19%, rgba(255, 255, 255, 0) 86.06%)',
-          }}
-        />
-      </span>
-      <span className="relative">{children}</span>
-    </>
-  )
-}
-
-export const shinyChipClass =
-  'group relative block rounded-[4px] text-center text-[13px] font-medium tracking-tight transition-[transform] duration-200 active:scale-[0.99] active:duration-[50ms] text-neutral-900 dark:text-neutral-300 px-2.5 sm:px-3 py-1.5 !text-[12px]'
-
-/* -------------------------------------------------------------------------
    Rainbow button — animated conic-ish gradient border with a blurred bloom
    underneath. Long class string transcribed verbatim from the reference.
 ------------------------------------------------------------------------- */

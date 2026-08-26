@@ -1,6 +1,7 @@
-import { profile, bio, socials, type BioSegment } from '../data/site'
-import { BrandIcon, SocialIcon, VerifiedBadge } from '../icons'
-import { GridIntersections, ShinyChip, shinyChipClass } from './primitives'
+import { profile, bio, type BioSegment } from '../data/site'
+import { BrandIcon, VerifiedBadge } from '../icons'
+import { GridIntersections } from './primitives'
+import { ConnectLinks } from './ConnectLinks'
 import { Annotation } from './Annotation'
 
 function BioPart({ seg }: { seg: BioSegment }) {
@@ -27,7 +28,7 @@ function BioPart({ seg }: { seg: BioSegment }) {
 
 export function Hero() {
   return (
-    <div className="flex flex-col mt-5 sm:mt-20 items-start w-[92vw] sm:w-[50vw] z-20">
+    <div className="flex flex-col mt-0 sm:mt-8 items-start w-[92vw] sm:w-[50vw] z-20">
       {/* decorative leaves — static on the reference (animate-leaf-sway is a dead class) */}
       <div className="w-[13vw] absolute top-[15%] right-0 bg-transparent z-0 hidden sm:block origin-top-right dark:opacity-90">
         <img
@@ -52,10 +53,9 @@ export function Hero() {
         />
       </div>
 
-      <div className="w-full h-10" />
 
       {/* identity row */}
-      <div className="flex items-center gap-3.5 sm:gap-6 mt-6 sm:mt-12 w-full relative pt-6 sm:pt-10 pb-4 sm:pb-6">
+      <div className="flex items-center gap-3.5 sm:gap-6 mt-0 sm:mt-12 w-full relative pt-4 sm:pt-10 pb-4 sm:pb-6">
         <div className="grid-line-h top-0" />
         <GridIntersections edge="top" />
 
@@ -132,45 +132,12 @@ export function Hero() {
         </div>
       </div>
 
-      {/* socials */}
+      {/* socials, as the bordered tile grid */}
       <div className="mt-8 mb-4 w-full">
         <h2 className="text-[14px] text-zinc-500 dark:text-zinc-400 mb-2.5">
           Here are my <span className="font-medium text-zinc-800 dark:text-zinc-200">socials</span>
         </h2>
-        <div className="flex flex-wrap gap-1.5 sm:gap-2">
-          {socials.map((s) => {
-            const inner = (
-              <ShinyChip>
-                <div className="flex items-center gap-1.5 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                  <SocialIcon name={s.icon} className="w-3.5 h-3.5" />
-                  {s.label}
-                </div>
-              </ShinyChip>
-            )
-            return (
-              <span className="inline-block" key={s.label}>
-                {s.asButton ? (
-                  <button
-                    className={shinyChipClass}
-                    onClick={() => s.copyValue && navigator.clipboard?.writeText(s.copyValue)}
-                  >
-                    {inner}
-                  </button>
-                ) : (
-                  <a
-                    className={shinyChipClass}
-                    href={s.href}
-                    target={s.download ? undefined : '_blank'}
-                    rel="noopener noreferrer"
-                    {...(s.download ? { download: '' } : {})}
-                  >
-                    {inner}
-                  </a>
-                )}
-              </span>
-            )
-          })}
-        </div>
+        <ConnectLinks />
       </div>
     </div>
   )

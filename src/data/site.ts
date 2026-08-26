@@ -10,16 +10,6 @@
  *      replace them with real copy. Dates/status are marked TBC.
  */
 
-export interface SocialLink {
-  label: string
-  href: string
-  icon: 'github' | 'twitter' | 'linkedin' | 'email' | 'instagram' | 'resume'
-  /** renders as a <button> instead of an <a> (copy-to-clipboard style action) */
-  asButton?: boolean
-  copyValue?: string
-  download?: boolean
-}
-
 export interface ExperienceItem {
   company: string
   role: string
@@ -101,18 +91,6 @@ export const bio: BioSegment[] = [
   { kind: 'text', value: '.' },
 ]
 
-export const socials: SocialLink[] = [
-  { label: 'GitHub', href: 'https://github.com/mrcontech', icon: 'github' },
-  { label: 'Twitter', href: 'https://x.com/mrcontech', icon: 'twitter' },
-  {
-    label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/okereke-excellence-723597361',
-    icon: 'linkedin',
-  },
-  { label: 'Email', href: 'mailto:okerekeexcellence89@gmail.com', icon: 'email' },
-  // Drop your CV at public/resume.pdf and this downloads it.
-  { label: 'Resume', href: '/resume.pdf', icon: 'resume', download: true },
-]
 
 export const experience: ExperienceItem[] = [
   {
@@ -354,6 +332,31 @@ export const projectTabs: ProjectTab[] = [
 
 export const seeMore = { label: 'SEE MORE', href: 'https://github.com/mrcontech?tab=repositories' }
 
+/**
+ * Closing "Connect" band. Layout follows the reference's contact section; the
+ * words are yours, not theirs.
+ */
+export const connect = {
+  eyebrow: 'Still here?',
+  heading: 'Let’s build something',
+  body: 'If you’ve read this far, you might be interested in what I do. I take on a small number of builds at a time, so the earlier the conversation the better.',
+  primary: { label: 'Book a call', href: 'https://cal.com/mrcontech' },
+  secondary: { label: 'Email me', href: 'mailto:okerekeexcellence89@gmail.com' },
+
+  /** Status line inside the dot field. Two lines read best at this size. */
+  availability: 'Open for full-time\n& freelance work',
+
+  /** Tile grid. Order matters: it drives which tiles start a row. */
+  links: [
+    { label: 'Resume', icon: 'resume', href: '/resume.pdf', download: true },
+    { label: 'Contact', icon: 'send', href: 'https://cal.com/mrcontech' },
+    { label: 'GitHub', icon: 'github', href: 'https://github.com/mrcontech' },
+    { label: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/in/okereke-excellence-723597361' },
+    { label: 'X (Twitter)', icon: 'twitter', href: 'https://x.com/mrcontech' },
+    { label: 'Email', icon: 'email', href: 'mailto:okerekeexcellence89@gmail.com' },
+  ] as { label: string; icon: string; href: string; download?: boolean }[],
+}
+
 /** Toolbar booking flow: pick a date here, then hand off to Cal.com. */
 export const booking = {
   title: 'Book a call',
@@ -384,5 +387,12 @@ export const footer = {
   ctaHref: 'https://cal.com/mrcontech',
   madeWith: 'Made with ♡',
   copyright: '© 2026 Okereke Excellence',
+
+  /**
+   * Optional pull-quote above the sign-off. Left empty on purpose: pick a line
+   * that's actually yours rather than inheriting the reference's. Fill both
+   * fields and the block appears; leave `text` empty and it stays hidden.
+   */
+  quote: { text: '', author: '' },
 }
 
